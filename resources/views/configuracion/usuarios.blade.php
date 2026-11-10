@@ -305,7 +305,7 @@
 
 @section('javascripts')
     <script>
-        document.getElementById('mResumenRegalias').classList.add('active');
+        document.getElementById('mConfigUsuarios').classList.add('active');
     </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {

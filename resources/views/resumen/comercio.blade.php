@@ -35,46 +35,140 @@
                     </div>
                     <div class="card-body">
                         <div class="funnel-chart">
-                            <div class="funnel-stage" style="--funnel-width: 45%;">
-                                <div class="funnel-bar primary"></div>
-                                <div class="funnel-info">
-                                    <span class="funnel-name">Potosí</span>
-                                    <span class="funnel-value">374,7 M</span>
-                                    <span class="funnel-rate">45%</span>
+                            @forelse ($rm_depto as $depto)
+                                <div class="funnel-stage" style="--funnel-width: {{ $depto['porcentaje'] }}%;">
+                                    <div class="funnel-bar success"></div>
+                                    <div class="funnel-info">
+                                        <span class="funnel-name">{{ $depto['nombre'] }}</span>
+                                        <span class="funnel-value">{{ $depto['rm'] }} M</span>
+                                        <span class="funnel-rate">{{ $depto['porcentaje'] }}%</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="funnel-stage" style="--funnel-width: 25%;">
-                                <div class="funnel-bar info"></div>
-                                <div class="funnel-info">
-                                    <span class="funnel-name">La Paz</span>
-                                    <span class="funnel-value">29,432 M</span>
-                                    <span class="funnel-rate">25%</span>
+                            @empty
+                                <div class="funnel-stage" style="--funnel-width: 100%;">
+                                    <div class="funnel-bar danger"></div>
+                                    <div class="funnel-info">
+                                        <span class="funnel-name">Sin datos</span>
+                                        <span class="funnel-value">0</span>
+                                        <span class="funnel-rate">0%</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="funnel-stage" style="--funnel-width: 35%;">
-                            <div class="funnel-bar warning"></div>
-                            <div class="funnel-info">
-                                <span class="funnel-name">MQL</span>
-                                <span class="funnel-value">15,848</span>
-                                <span class="funnel-rate">54%</span>
-                            </div>
-                            </div>
-                            <div class="funnel-stage" style="--funnel-width: 18%;">
-                            <div class="funnel-bar success"></div>
-                            <div class="funnel-info">
-                                <span class="funnel-name">SQL</span>
-                                <span class="funnel-value">8,150</span>
-                                <span class="funnel-rate">51%</span>
-                            </div>
-                            </div>
-                            <div class="funnel-stage" style="--funnel-width: 8%;">
-                            <div class="funnel-bar danger"></div>
-                            <div class="funnel-info">
-                                <span class="funnel-name">Customers</span>
-                                <span class="funnel-value">3,622</span>
-                                <span class="funnel-rate">44%</span>
-                            </div>
-                            </div>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Social Media Stats & Active Campaigns -->
+        <div class="row g-4 mb-4">
+            <!-- <div class="col-12 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                    <h5 class="card-title mb-0">Social Media</h5>
+                    </div>
+                    <div class="card-body p-0">
+                    <div class="social-stats-list">
+                        <div class="social-stats-item">
+                        <div class="social-icon facebook">
+                            <i class="bi bi-facebook"></i>
+                        </div>
+                        <div class="social-info">
+                            <div class="social-name">Facebook</div>
+                            <div class="social-followers">125.4K followers</div>
+                        </div>
+                        <div class="social-engagement">
+                            <span class="engagement-value">4.2%</span>
+                            <span class="engagement-label">Engagement</span>
+                        </div>
+                        </div>
+                        <div class="social-stats-item">
+                        <div class="social-icon twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </div>
+                        <div class="social-info">
+                            <div class="social-name">Twitter / X</div>
+                            <div class="social-followers">89.2K followers</div>
+                        </div>
+                        <div class="social-engagement">
+                            <span class="engagement-value">3.8%</span>
+                            <span class="engagement-label">Engagement</span>
+                        </div>
+                        </div>
+                        <div class="social-stats-item">
+                        <div class="social-icon instagram">
+                            <i class="bi bi-instagram"></i>
+                        </div>
+                        <div class="social-info">
+                            <div class="social-name">Instagram</div>
+                            <div class="social-followers">234.8K followers</div>
+                        </div>
+                        <div class="social-engagement">
+                            <span class="engagement-value">5.6%</span>
+                            <span class="engagement-label">Engagement</span>
+                        </div>
+                        </div>
+                        <div class="social-stats-item">
+                        <div class="social-icon linkedin">
+                            <i class="bi bi-linkedin"></i>
+                        </div>
+                        <div class="social-info">
+                            <div class="social-name">LinkedIn</div>
+                            <div class="social-followers">45.6K followers</div>
+                        </div>
+                        <div class="social-engagement">
+                            <span class="engagement-value">2.9%</span>
+                            <span class="engagement-label">Engagement</span>
+                        </div>
+                        </div>
+                        <div class="social-stats-item">
+                        <div class="social-icon youtube">
+                            <i class="bi bi-youtube"></i>
+                        </div>
+                        <div class="social-info">
+                            <div class="social-name">YouTube</div>
+                            <div class="social-followers">78.3K subscribers</div>
+                        </div>
+                        <div class="social-engagement">
+                            <span class="engagement-value">6.1%</span>
+                            <span class="engagement-label">Engagement</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-12 col-xl-8">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Regalías Mineras por Municipio</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                <th>Municipio</th>
+                                <th>Comisión</th>
+                                <th>Gob. Departamental</th>
+                                <th>Gob. Municipal</th>
+                                <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rm_municipio as $municipio)
+                                <tr>
+                                    <td>
+                                        <div class="fw-medium">{{ $municipio->municipio_productor }}</div>
+                                        <small class="text-muted">Depto</small>
+                                    </td>
+                                    <td>{{ $municipio->comision }}</td>
+                                    <td>{{ $municipio->gob_departamental }}</td>
+                                    <td>{{ $municipio->gob_municipal }}</td>
+                                    <td>{{ $municipio->total }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -137,188 +231,6 @@
             </div>
         </div>
 
-      <!-- Social Media Stats & Active Campaigns -->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-xl-4">
-          <div class="card h-100">
-            <div class="card-header">
-              <h5 class="card-title mb-0">Social Media</h5>
-            </div>
-            <div class="card-body p-0">
-              <div class="social-stats-list">
-                <div class="social-stats-item">
-                  <div class="social-icon facebook">
-                    <i class="bi bi-facebook"></i>
-                  </div>
-                  <div class="social-info">
-                    <div class="social-name">Facebook</div>
-                    <div class="social-followers">125.4K followers</div>
-                  </div>
-                  <div class="social-engagement">
-                    <span class="engagement-value">4.2%</span>
-                    <span class="engagement-label">Engagement</span>
-                  </div>
-                </div>
-                <div class="social-stats-item">
-                  <div class="social-icon twitter">
-                    <i class="bi bi-twitter-x"></i>
-                  </div>
-                  <div class="social-info">
-                    <div class="social-name">Twitter / X</div>
-                    <div class="social-followers">89.2K followers</div>
-                  </div>
-                  <div class="social-engagement">
-                    <span class="engagement-value">3.8%</span>
-                    <span class="engagement-label">Engagement</span>
-                  </div>
-                </div>
-                <div class="social-stats-item">
-                  <div class="social-icon instagram">
-                    <i class="bi bi-instagram"></i>
-                  </div>
-                  <div class="social-info">
-                    <div class="social-name">Instagram</div>
-                    <div class="social-followers">234.8K followers</div>
-                  </div>
-                  <div class="social-engagement">
-                    <span class="engagement-value">5.6%</span>
-                    <span class="engagement-label">Engagement</span>
-                  </div>
-                </div>
-                <div class="social-stats-item">
-                  <div class="social-icon linkedin">
-                    <i class="bi bi-linkedin"></i>
-                  </div>
-                  <div class="social-info">
-                    <div class="social-name">LinkedIn</div>
-                    <div class="social-followers">45.6K followers</div>
-                  </div>
-                  <div class="social-engagement">
-                    <span class="engagement-value">2.9%</span>
-                    <span class="engagement-label">Engagement</span>
-                  </div>
-                </div>
-                <div class="social-stats-item">
-                  <div class="social-icon youtube">
-                    <i class="bi bi-youtube"></i>
-                  </div>
-                  <div class="social-info">
-                    <div class="social-name">YouTube</div>
-                    <div class="social-followers">78.3K subscribers</div>
-                  </div>
-                  <div class="social-engagement">
-                    <span class="engagement-value">6.1%</span>
-                    <span class="engagement-label">Engagement</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-xl-8">
-          <div class="card h-100">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h5 class="card-title mb-0">Active Campaigns</h5>
-              <a href="#" class="btn btn-sm btn-primary">
-                <i class="bi bi-plus"></i> New Campaign
-              </a>
-            </div>
-            <div class="card-body p-0">
-              <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                  <thead>
-                    <tr>
-                      <th>Campaign</th>
-                      <th>Channel</th>
-                      <th>Budget</th>
-                      <th>Spent</th>
-                      <th>Progress</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="fw-medium">Summer Sale 2024</div>
-                        <small class="text-muted">Jan 15 - Feb 28</small>
-                      </td>
-                      <td><span class="badge bg-primary-subtle text-primary">Social</span></td>
-                      <td>$15,000</td>
-                      <td>$8,450</td>
-                      <td style="width: 150px;">
-                        <div class="progress" style="height: 6px;">
-                          <div class="progress-bar" style="width: 56%;"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="fw-medium">Product Launch</div>
-                        <small class="text-muted">Jan 20 - Mar 15</small>
-                      </td>
-                      <td><span class="badge bg-info-subtle text-info">Email</span></td>
-                      <td>$8,000</td>
-                      <td>$3,200</td>
-                      <td style="width: 150px;">
-                        <div class="progress" style="height: 6px;">
-                          <div class="progress-bar bg-info" style="width: 40%;"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="fw-medium">Brand Awareness</div>
-                        <small class="text-muted">Jan 1 - Dec 31</small>
-                      </td>
-                      <td><span class="badge bg-warning-subtle text-warning">PPC</span></td>
-                      <td>$50,000</td>
-                      <td>$12,800</td>
-                      <td style="width: 150px;">
-                        <div class="progress" style="height: 6px;">
-                          <div class="progress-bar bg-warning" style="width: 26%;"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="fw-medium">Webinar Promotion</div>
-                        <small class="text-muted">Feb 1 - Feb 15</small>
-                      </td>
-                      <td><span class="badge bg-success-subtle text-success">Content</span></td>
-                      <td>$3,500</td>
-                      <td>$0</td>
-                      <td style="width: 150px;">
-                        <div class="progress" style="height: 6px;">
-                          <div class="progress-bar bg-secondary" style="width: 0%;"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">Scheduled</span></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="fw-medium">Retargeting Campaign</div>
-                        <small class="text-muted">Ongoing</small>
-                      </td>
-                      <td><span class="badge bg-primary-subtle text-primary">Social</span></td>
-                      <td>$5,000/mo</td>
-                      <td>$2,150</td>
-                      <td style="width: 150px;">
-                        <div class="progress" style="height: 6px;">
-                          <div class="progress-bar" style="width: 43%;"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Email Stats & Top Content -->
       <div class="row g-4 mb-4">
@@ -412,8 +324,6 @@
       </div>
 
     </div>
-
-
 @endsection
 
 @section('javascripts')
@@ -639,7 +549,7 @@
         }],
         chart: {
           type: 'bar',
-          height: 280,
+          height: 380,
           stacked: true,
           toolbar: {
             show: false
@@ -658,6 +568,9 @@
         colors: [accentColor, warningColor, infoColor],
         xaxis: {
           categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+          title: {
+            text: "Gestión: 2025"
+          },
           axisBorder: {
             show: false
           },
@@ -675,7 +588,10 @@
             style: {
               colors: mutedColor
             }
-          }
+          },
+          title: {
+            text: "En Bolivianos"
+          },
         },
         grid: {
           borderColor: borderColor,

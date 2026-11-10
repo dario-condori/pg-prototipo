@@ -16,6 +16,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a id="mResumenMuestreo" class="nav-link " href="{{ route('resumen.muestreo') }}">
+                            <span class="nav-icon"><i class="ph-light ph-gauge"></i></span>
+                            <span class="nav-text">Análisis de Muestras</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a id="mResumenRegalias" class="nav-link " href="{{ route('resumen.regalias') }}">
                             <span class="nav-icon"><i class="ph-light ph-puzzle-piece"></i></span>
                             <span class="nav-text">Análisis de Cuadrículas Mineras</span>
@@ -25,12 +31,6 @@
                         <a id="mResumenComercio" class="nav-link " href="{{ route('resumen.comercio') }}">
                             <span class="nav-icon"><i class="ph-light ph-gauge"></i></span>
                             <span class="nav-text">Análisis de Comercialización</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#!">
-                            <span class="nav-icon"><i class="ph-light ph-gauge"></i></span>
-                            <span class="nav-text">Análisis de Producción</span>
                         </a>
                     </li>
                     {{-- <i class="ph-light ph-table"></i> --}}
@@ -101,22 +101,22 @@
                             <span class="nav-arrow"><i class="bi bi-chevron-right"></i></span>
                         </a>
                         <ul class="nav-submenu ">
-                            <li><a class="nav-link " href="{{ route('config.usuarios') }}"><span class="nav-dot"></span>Usuarios</a></li>
-                            <li><a class="nav-link " href="#!"><span class="nav-dot"></span>Roles</a></li>
+                            <li><a id="mConfigUsuarios" class="nav-link " href="{{ route('config.usuarios') }}"><span class="nav-dot"></span>Usuarios</a></li>
+                            {{-- <li><a class="nav-link " href="#!"><span class="nav-dot"></span>Roles</a></li>
                             <li><a class="nav-link " href="#!"><span class="nav-dot"></span>Permisos</a></li>
-                            <li><a class="nav-link " href="#!"><span class="nav-dot"></span>Notificaciones</a></li>
+                            <li><a class="nav-link " href="#!"><span class="nav-dot"></span>Notificaciones</a></li> --}}
                         </ul>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#!">
                             <span class="nav-icon"><i class="ph-light ph-shield-check"></i></span>
                             <span class="nav-text">Parámetros</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">
+                        <a id="mConfigServicios" class="nav-link" href="{{ route('config.servicios') }}">
                             <span class="nav-icon"><i class="ph-light ph-checks"></i></span>
                             <span class="nav-text">Servicios y BBDD</span>
                         </a>
